@@ -42,7 +42,7 @@ class App extends Component {
         <div className="Container__form">
           <Form onChange={this.handleChange} onSubmit={this.handleSubmit} />
         </div>
-        {/* <Card alldata={this.state.alldata} /> */}
+        <Card alldata={this.state.alldata} />
       </div>
     );
   }
