@@ -12,28 +12,24 @@ function Card(props) {
   }
 
   return (
-    <div className="">
-     
-        {alldata.map(data => {
-          return (
-            <div className="mt-4 col-4">
-              <div className="card">
-                <div className="card-header">{data.servicio}</div>
-                <div className="card-body">
-                  <p className="card-text">{data.descripcion}</p>
-                </div>
-                <div className="card-footer">
-                  <a href="/#" className="mr-4">
-                    editar
-                  </a>
-                  <a href="/#">eliminar</a>
-                </div>
-              </div>
+    <React.Fragment>
+      {alldata.map(data => {
+        return (
+          <div className="card">
+            <div className="card-header">{data.servicio}</div>
+            <div className="card-body">
+              <p className="card-text">{data.descripcion}</p>
             </div>
-          );
-        })}
-  
-    </div>
+            <div className="card-footer">
+              <a href="/#" className="mr-4">
+                editar
+              </a>
+              <a href="/#">eliminar</a>
+            </div>
+          </div>
+        );
+      })}
+    </React.Fragment>
   );
 }
 

@@ -3,7 +3,7 @@ import React from "react";
 class Form extends React.Component {
   render() {
     return (
-      <div className="col-4">
+      <div className="container">
         <form onSubmit={this.props.onSubmit}>
           <div className="form-group">
             <label>Servicios</label>

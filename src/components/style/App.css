@@ -1,0 +1,32 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.Container_hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 60px 550px;
+  height: 100vh;
+  align-items: center;
+  justify-items: center;
+  grid-gap: 10px;
+}
+.Container__form {
+  width: 45%;
+  grid-column: 1/4;
+  justify-self: center;
+  align-self: center;
+  padding: 10px;
+  border-bottom: 1px solid rgb(207, 207, 207);
+}
+
+.titulo {
+  margin-top: 20px;
+  grid-column: 1/4;
+}
+
+.card {
+  width: 80%;
+  padding: 20px;
+}

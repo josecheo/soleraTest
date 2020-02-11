@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Card from "./Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "./Form";
+import "./style/App.css";
 
 class App extends Component {
   state = {
@@ -36,10 +37,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <h1>Servicios</h1>
-        <Form onChange={this.handleChange} onSubmit={this.handleSubmit} />
-
+      <div className="Container_hero">
+        <h1 className="titulo">Servicios</h1>
+        <div className="Container__form">
+          <Form onChange={this.handleChange} onSubmit={this.handleSubmit} />
+        </div>
         <Card alldata={this.state.alldata} />
       </div>
     );
