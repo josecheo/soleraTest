@@ -24,16 +24,16 @@ class App extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.state.alldata.push(this.state.data);
-    localStorage.setItem("data", JSON.stringify(this.state.alldata));
-    this.showData();
+    var alldata = this.state.alldata;
+    alldata.push(this.state.data);
+    this.setState({ alldata: alldata });
   };
 
-  showData = () => {
-    var data = localStorage.getItem("data");
-    var mostrarData = JSON.parse(data);
-    this.setState({ alldata: mostrarData });
-  };
+  // showData = () => {
+  //   var data = localStorage.getItem("data");
+  //   var mostrarData = JSON.parse(data);
+  //   // this.setState({ alldata: mostrarData });
+  // };
 
   render() {
     return (
@@ -42,7 +42,7 @@ class App extends Component {
         <div className="Container__form">
           <Form onChange={this.handleChange} onSubmit={this.handleSubmit} />
         </div>
-        <Card alldata={this.state.alldata} />
+        {/* <Card alldata={this.state.alldata} /> */}
       </div>
     );
   }
