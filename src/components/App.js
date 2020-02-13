@@ -27,7 +27,7 @@ class App extends Component {
   handleSubmit = e => {
     e.preventDefault();
     let alldata = this.state.alldata;
-    var index = this.state.index;
+    let index = this.state.index;
     alldata.push(this.state.data);
     index += 1;
     this.setState({
