@@ -24,9 +24,16 @@ class App extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    var alldata = this.state.alldata;
+    let alldata = this.state.alldata;
     alldata.push(this.state.data);
-    this.setState({ alldata: alldata });
+    this.setState({
+      alldata: alldata,
+      data: {
+        servicio: "",
+        descripcion: "",
+        categoria: ""
+      }
+    });
   };
 
   // showData = () => {
@@ -40,7 +47,11 @@ class App extends Component {
       <div className="Container_hero">
         <h1 className="titulo">Servicios</h1>
         <div className="Container__form">
-          <Form onChange={this.handleChange} onSubmit={this.handleSubmit} />
+          <Form
+            onChange={this.handleChange}
+            onSubmit={this.handleSubmit}
+            formData={this.state.data}
+          />
         </div>
         <Card alldata={this.state.alldata} />
       </div>

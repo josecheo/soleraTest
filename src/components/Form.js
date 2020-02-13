@@ -12,6 +12,7 @@ class Form extends React.Component {
               className="form-control"
               type="text"
               name="servicio"
+              value={this.props.formData.servicio}
             />
           </div>
           <div className="form-group">
@@ -21,6 +22,7 @@ class Form extends React.Component {
               className="form-control"
               rows="3"
               name="descripcion"
+              value={this.props.formData.descripcion}
             ></textarea>
           </div>
           <div className="form-group">
@@ -29,6 +31,7 @@ class Form extends React.Component {
               onChange={this.props.onChange}
               className="form-control"
               name="categoria"
+              value={this.props.formData.categoria}
             >
               <option>Auto</option>
               <option>Salud</option>
