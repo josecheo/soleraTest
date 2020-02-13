@@ -9,12 +9,12 @@ class App extends Component {
     alldata: [],
     index: 0,
     data: {
-      id: 0,
       servicio: "",
       descripcion: "",
       categoria: ""
     }
   };
+  //cojo los datos de los input
   handleChange = e => {
     this.setState({
       data: {
@@ -24,22 +24,36 @@ class App extends Component {
     });
   };
 
+  //aca guardo la info.
   handleSubmit = e => {
     e.preventDefault();
     let alldata = this.state.alldata;
-    let index = this.state.index;
     alldata.push(this.state.data);
-    index += 1;
     this.setState({
-      alldata: alldata,
-      index: index,
       data: {
-        id: index,
         servicio: "",
         descripcion: "",
         categoria: ""
-      }
+      },
+
+      alldata: alldata
     });
+    //llamo a limpar el form
+    this.clearForm();
+  };
+
+  //funcion para limpiar el form
+  clearForm = () => {};
+
+  handleEdit = e => {
+    console.log("Ediando", e);
+  };
+
+  handleDelete = e => {
+    console.log("valor de e : ", e);
+    let alldata = this.state.alldata;
+    alldata.splice(e, 1);
+    this.setState({ alldata: alldata });
   };
 
   render() {
@@ -53,7 +67,11 @@ class App extends Component {
             formData={this.state.data}
           />
         </div>
-        <Card alldata={this.state.alldata} />
+        <Card
+          alldata={this.state.alldata}
+          onEdit={this.handleEdit}
+          onDelete={this.handleDelete}
+        />
       </div>
     );
   }
