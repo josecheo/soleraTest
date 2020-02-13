@@ -23,8 +23,8 @@ function Card(props) {
             </div>
             <button
               className="btn btn-primary"
-              onClick={e => {
-                props.onEdit(data.id);
+              onClick={() => {
+                props.onEdit(i);
               }}
             >
               Editar

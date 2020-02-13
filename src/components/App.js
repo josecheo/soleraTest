@@ -6,8 +6,9 @@ import "./style/App.css";
 
 class App extends Component {
   state = {
+    act: 0,
+    index: "",
     alldata: [],
-    index: 0,
     data: {
       servicio: "",
       descripcion: "",
@@ -28,29 +29,44 @@ class App extends Component {
   handleSubmit = e => {
     e.preventDefault();
     let alldata = this.state.alldata;
-    alldata.push(this.state.data);
+    //agregando nuevo
+    if (this.state.act === 0) {
+      alldata.push(this.state.data);
+    } else {
+      //updateando
+      let index = this.state.index;
+      alldata[index].servicio = this.state.data.servicio;
+      alldata[index].descripcion = this.state.data.descripcion;
+      alldata[index].descripcion = this.state.data.categoria;
+    }
+    //limpio el state
     this.setState({
       data: {
         servicio: "",
         descripcion: "",
         categoria: ""
       },
-
+      //actualizo todo
       alldata: alldata
     });
-    //llamo a limpar el form
-    this.clearForm();
   };
 
-  //funcion para limpiar el form
-  clearForm = () => {};
-
   handleEdit = e => {
-    console.log("Ediando", e);
+    let data = this.state.alldata[e];
+    this.setState({
+      data: {
+        servicio: data.servicio,
+        descripcion: data.descripcion
+      }
+    });
+
+    this.setState({
+      act: 1,
+      index: e
+    });
   };
 
   handleDelete = e => {
-    console.log("valor de e : ", e);
     let alldata = this.state.alldata;
     alldata.splice(e, 1);
     this.setState({ alldata: alldata });
