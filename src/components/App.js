@@ -7,7 +7,9 @@ import "./style/App.css";
 class App extends Component {
   state = {
     alldata: [],
+    index: 0,
     data: {
+      id: 0,
       servicio: "",
       descripcion: "",
       categoria: ""
@@ -25,22 +27,20 @@ class App extends Component {
   handleSubmit = e => {
     e.preventDefault();
     let alldata = this.state.alldata;
+    var index = this.state.index;
     alldata.push(this.state.data);
+    index += 1;
     this.setState({
       alldata: alldata,
+      index: index,
       data: {
+        id: index,
         servicio: "",
         descripcion: "",
         categoria: ""
       }
     });
   };
-
-  // showData = () => {
-  //   var data = localStorage.getItem("data");
-  //   var mostrarData = JSON.parse(data);
-  //   // this.setState({ alldata: mostrarData });
-  // };
 
   render() {
     return (
