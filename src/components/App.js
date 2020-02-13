@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Card from "./Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "./Form";
+import Filter from "./Filter";
 import "./style/App.css";
 
 class App extends Component {
@@ -37,7 +38,7 @@ class App extends Component {
       let index = this.state.index;
       alldata[index].servicio = this.state.data.servicio;
       alldata[index].descripcion = this.state.data.descripcion;
-      alldata[index].descripcion = this.state.data.categoria;
+      alldata[index].categoria = this.state.data.categoria;
     }
     //limpio el state
     this.setState({
@@ -56,7 +57,8 @@ class App extends Component {
     this.setState({
       data: {
         servicio: data.servicio,
-        descripcion: data.descripcion
+        descripcion: data.descripcion,
+        categoria: data.categoria
       }
     });
 
@@ -83,6 +85,10 @@ class App extends Component {
             formData={this.state.data}
           />
         </div>
+        <div className="Container__filter">
+          <Filter></Filter>
+        </div>
+
         <Card
           alldata={this.state.alldata}
           onEdit={this.handleEdit}

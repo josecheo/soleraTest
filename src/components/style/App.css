@@ -20,6 +20,12 @@
   padding: 10px;
   border-bottom: 1px solid rgb(207, 207, 207);
 }
+.Container__filter {
+  grid-column: 1/4;
+  justify-self: center;
+  align-self: center;
+  width: 60%;
+}
 
 .titulo {
   margin-top: 20px;
