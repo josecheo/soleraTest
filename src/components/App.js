@@ -34,7 +34,6 @@ class App extends Component {
     });
   };
 
-  //aca guardo la info.
   handleSubmit = e => {
     e.preventDefault();
     let alldata = this.state.alldata;
@@ -82,30 +81,6 @@ class App extends Component {
     this.setState({ alldata: alldata });
   };
 
-  handleFilter = () => {
-    let textFilter = this.state.textFilter;
-    let alldata = this.state.alldata;
-    // si es diferente a todo empiezo a filtrar
-    if (textFilter !== "Todos") {
-      let alldataFilter = alldata.filter(data => data.categoria === textFilter);
-      // aca valido si hay datos o no
-      if (alldataFilter.length === 0) {
-        alert("No hay datos");
-        this.setState({
-          alldata: alldata
-        });
-      } else {
-        // si encuentra datos actualizo el estado
-        this.setState({
-          alldata: alldataFilter
-        });
-      }
-    } else
-      this.setState({
-        alldata: alldata
-      });
-  };
-
   render() {
     return (
       <div className="Container_hero">
@@ -120,13 +95,13 @@ class App extends Component {
         <div className="Container__filter">
           <Filter
             onChange={this.filterChange}
-            onFilter={this.handleFilter}
             filterData={this.state.textFilter}
           ></Filter>
         </div>
 
         <Card
           alldata={this.state.alldata}
+          textFilter={this.state.textFilter}
           onEdit={this.handleEdit}
           onDelete={this.handleDelete}
         />
