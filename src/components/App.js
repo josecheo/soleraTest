@@ -10,6 +10,7 @@ class App extends Component {
     act: 0,
     index: "",
     alldata: [],
+    textFilter: "",
     data: {
       servicio: "",
       descripcion: "",
@@ -19,10 +20,17 @@ class App extends Component {
   //cojo los datos de los input
   handleChange = e => {
     this.setState({
+      textFilter: e.target.value,
       data: {
         ...this.state.data,
         [e.target.name]: e.target.value
       }
+    });
+  };
+
+  filterChange = e => {
+    this.setState({
+      textFilter: e.target.value
     });
   };
 
@@ -74,6 +82,30 @@ class App extends Component {
     this.setState({ alldata: alldata });
   };
 
+  handleFilter = () => {
+    let textFilter = this.state.textFilter;
+    let alldata = this.state.alldata;
+    // si es diferente a todo empiezo a filtrar
+    if (textFilter !== "Todos") {
+      let alldataFilter = alldata.filter(data => data.categoria === textFilter);
+      // aca valido si hay datos o no
+      if (alldataFilter.length === 0) {
+        alert("No hay datos");
+        this.setState({
+          alldata: alldata
+        });
+      } else {
+        // si encuentra datos actualizo el estado
+        this.setState({
+          alldata: alldataFilter
+        });
+      }
+    } else
+      this.setState({
+        alldata: alldata
+      });
+  };
+
   render() {
     return (
       <div className="Container_hero">
@@ -86,7 +118,11 @@ class App extends Component {
           />
         </div>
         <div className="Container__filter">
-          <Filter></Filter>
+          <Filter
+            onChange={this.filterChange}
+            onFilter={this.handleFilter}
+            filterData={this.state.textFilter}
+          ></Filter>
         </div>
 
         <Card

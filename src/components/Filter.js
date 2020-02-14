@@ -7,11 +7,19 @@ class Filter extends React.Component {
         <div className="container">
           <div className="form-group">
             <label>Categoria</label>
-            <select onChange="" className="form-control" name="filter">
+            <select
+              onChange={this.props.onChange}
+              className="form-control"
+              name="filter"
+            >
+              <option>Todos</option>
               <option>Auto</option>
               <option>Salud</option>
               <option>Hogar</option>
             </select>
+            <div onClick={this.props.onFilter} className="btn btn-primary">
+              Buscar
+            </div>
           </div>
         </div>
       </React.Fragment>
