@@ -10,17 +10,17 @@ class App extends Component {
     act: 0,
     index: "",
     alldata: [],
-    textFilter: "",
+    textFilter: "Todos",
     data: {
       servicio: "",
       descripcion: "",
-      categoria: ""
+      categoria: "Auto"
     }
   };
   //cojo los datos de los input
   handleChange = e => {
     this.setState({
-      textFilter: e.target.value,
+      // textFilter: e.target.value,
       data: {
         ...this.state.data,
         [e.target.name]: e.target.value
@@ -52,7 +52,7 @@ class App extends Component {
       data: {
         servicio: "",
         descripcion: "",
-        categoria: ""
+        categoria: "Auto"
       },
       //actualizo todo
       alldata: alldata
